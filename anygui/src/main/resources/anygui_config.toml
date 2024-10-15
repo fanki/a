@@ -1,0 +1,76 @@
+[webapp]
+port = 7070
+context_path = "/myapp"
+
+[gui]
+window_title = "My Application"
+width = 800
+height = 600
+
+[format_plugins]
+format_type = "json"
+output_dir = "/var/output"
+
+[ui_plugin]
+theme = "dark"
+language = "en"
+
+
+# ********************************************************************************************
+# Basic configuration for AnyGUI
+# ********************************************************************************************
+# TODO check if this needed
+[application]
+title = "Device Control Panel"
+header_text = "Control Panel for XYZ Device"
+footer_text = "XYZ Corporation - All rights reserved"
+enable_remote_access = true
+javafx_enabled = true
+port = 7070
+context_path = "/myapp"
+width = 800
+height = 600
+
+
+# ********************************************************************************************
+# IO Plugin Configuration
+# ********************************************************************************************
+[io_plugin]
+type = "file"   # Can be 'file', 'https', 'websocket', etc.
+filepath = "src/test/resources/"
+poll_interval = 1000  # Poll interval in milliseconds for the file
+
+# ********************************************************************************************
+# Format Plugin Configuration
+# ********************************************************************************************
+[format_plugin]
+type = "property"   # Can be 'json', 'properties', 'csv', 'toml', etc.
+
+# ********************************************************************************************
+# Widget Plugin Configuration
+# ********************************************************************************************
+# Widget 1 - Textfield
+[[widget_plugins]]
+type = "textfield"
+name = "Device Name"
+description = "Enter the name of the device"
+default_value = "Unnamed Device"
+maxlength = 50
+
+## Widget 2 - Integer Input
+#[[widget_plugins]]
+#type = "integer_input"
+#name = "Speed"
+#description = "Set the device speed (RPM)"
+#min_value = 0
+#max_value = 5000
+#default_value = 1200
+#warning_range_min = 4500  # Warn if above 4500 RPM
+#
+## Widget 3 - Boolean Selection
+#[[widget_plugins]]
+#type = "boolean"
+#name = "Power"
+#description = "Turn the device on or off"
+#default_value = false  # Default to off
+#
